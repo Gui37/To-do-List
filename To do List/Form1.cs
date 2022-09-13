@@ -14,7 +14,7 @@ namespace To_do_List
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Sendo desenvolvido")
+            MessageBox.Show("Sendo desenvolvido");
         }
     }
 }
