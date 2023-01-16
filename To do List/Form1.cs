@@ -8,7 +8,84 @@ namespace To_do_List
         {
             InitializeComponent();
         }
-       
+
+        private static DialogResult ShowInputDialogBox(ref string input, ref string input2, string prompt,
+            string prompt2,string title = "Title", int width = 300, int height = 200)  {
+            //This function creates the custom input dialog box by individually creating the different
+            //window elements and adding them to the dialog box
+
+            //Specify the size of the window using the parameters passed
+            Size size = new Size(width, height);
+            //Create a new form using a System.Windows Form
+            Form inputBox = new Form();
+
+            inputBox.FormBorderStyle = FormBorderStyle.Fixed3D;
+            inputBox.ClientSize = size;
+            inputBox.MaximizeBox= false;
+            inputBox.MinimizeBox= false;
+           
+            
+            //Set the window title using the parameter passed
+            inputBox.Text = title;
+
+            //Create a new label to hold the prompt
+            Label label = new Label();
+            label.Text = prompt;
+            label.Location = new Point(5, 5);
+            label.Width = size.Width - 15;
+            inputBox.Controls.Add(label);
+
+            //Create a textbox to accept the user's input
+            TextBox textBox = new TextBox();
+            textBox.Size = new Size(size.Width - 10, 23);
+            textBox.Location = new Point(5, label.Location.Y + 23);
+            textBox.Text = input;
+            inputBox.Controls.Add(textBox);
+
+            //Create a new label to hold the prompt
+            Label label2 = new Label();
+            label2.Text = prompt2;
+            label2.Location = new Point(5, 50);
+            label2.Width = size.Width - 15;
+            inputBox.Controls.Add(label2);
+
+            //Create a textbox to accept the user's other input
+            TextBox textBox2 = new TextBox();
+            textBox2.Size = new Size(size.Width - 10, 23);
+            textBox2.Location = new Point(5, label2.Location.Y + 23);
+            textBox2.Text = input2;
+            inputBox.Controls.Add(textBox2);
+
+            //Create an OK Button 
+            Button okButton = new Button();
+            okButton.DialogResult = DialogResult.OK;
+            okButton.Name = "okButton";
+            okButton.Size = new Size(75, 23);
+            okButton.Text = "&OK";
+            okButton.Location = new Point(size.Width - 80 - 80, size.Height - 30);
+            inputBox.Controls.Add(okButton);
+
+            //Create a Cancel Button
+            Button cancelButton = new Button();
+            cancelButton.DialogResult = DialogResult.Cancel;
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(75, 23);
+            cancelButton.Text = "&Cancel";
+            cancelButton.Location = new Point(size.Width - 80, size.Height - 30);
+            inputBox.Controls.Add(cancelButton);
+
+            //Set the input box's buttons to the created OK and Cancel Buttons respectively
+            //so the window appropriately behaves with the button clicks
+            inputBox.AcceptButton = okButton;
+            inputBox.CancelButton = cancelButton;
+
+            //Show the window dialog box 
+            DialogResult result = inputBox.ShowDialog();
+            input = textBox.Text;
+
+            //After input has been submitted, return the input value
+            return result;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -65,6 +142,7 @@ namespace To_do_List
             }
         }
 
+
         private void button3_Click(object sender, EventArgs e)
         {
             groupBox1.BackColor = Color.Transparent;
@@ -72,6 +150,56 @@ namespace To_do_List
             groupBox3.BackColor = Color.Transparent;
         }
 
-       
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string input = "";
+            string input2 = "";
+            ShowInputDialogBox(ref input, ref input2, "Please enter the checkbox number",
+                "Please write the chore you want to modify", "Qwerty", 300, 200);
+            int x = Int32.Parse(input);
+            switch (x)
+            {
+                case 1:
+                   this.checkBox1.Text = input2;
+                    break;
+                case 2:
+                    checkBox2.Text = input2;
+                    break;
+                case 3:
+                    checkBox3.Text = input2;
+                    break;
+                case 4:
+                    checkBox4.Text = input2;
+                    break;
+                case 5:
+                    checkBox5.Text = input2;
+                    break;
+                case 6:
+                    checkBox6.Text = input2;
+                    break;
+                case 7:
+                    checkBox7.Text = input2;
+                    break;
+                case 8:
+                    checkBox8.Text = input2;
+                    break;
+                case 9:
+                    checkBox9.Text = input2;
+                    break;
+                case 10:
+                    checkBox10.Text = input2;
+                    break;
+                case 11:
+                    checkBox11.Text = input2;
+                    break;
+                case 12:
+                    checkBox12.Text = input2;
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
     }
 }
