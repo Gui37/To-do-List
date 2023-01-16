@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace To_do_List
 {
@@ -8,7 +9,7 @@ namespace To_do_List
         {
             InitializeComponent();
         }
-
+        
         private static DialogResult ShowInputDialogBox(ref string input, ref string input2, string prompt,
             string prompt2,string title = "Title", int width = 300, int height = 200)  {
             //This function creates the custom input dialog box by individually creating the different
@@ -96,6 +97,7 @@ namespace To_do_List
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             int x=0;
             
             if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
@@ -115,6 +117,7 @@ namespace To_do_List
             {
                
             }
+            
 
             switch (x)
             {
@@ -150,55 +153,78 @@ namespace To_do_List
             groupBox3.BackColor = Color.Transparent;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void dialogBox()
         {
             string input = "";
             string input2 = "";
-            ShowInputDialogBox(ref input, ref input2, "Please enter the checkbox number",
+            ShowInputDialogBox(ref input, ref input2, "Please enter the checkbox number between 1-12",
                 "Please write the chore you want to modify", "Qwerty", 300, 200);
-            int x = Int32.Parse(input);
-            string textCheck = input2;
+            int x = 0;
+            
+            try
+            {
+                x = Int32.Parse(input);
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("There was a FormatException while using the dialog box");
+                dialogBox();
+            }
+           
             switch (x)
             {
                 case 1:
-                   checkBox1.Text = textCheck;
+                    checkBox1.Text = input2;
                     break;
                 case 2:
-                    checkBox2.Text = textCheck;
+                    checkBox2.Text = input2;
                     break;
                 case 3:
-                    checkBox3.Text = textCheck;
+                    checkBox3.Text = input2;
                     break;
                 case 4:
-                    checkBox4.Text = textCheck;
+                    checkBox4.Text = input2;
                     break;
                 case 5:
-                    checkBox5.Text = textCheck;
+                    checkBox5.Text = input2;
                     break;
                 case 6:
-                    checkBox6.Text = textCheck;
+                    checkBox6.Text = input2;
                     break;
                 case 7:
-                    checkBox7.Text = textCheck;
+                    checkBox7.Text = input2;
                     break;
                 case 8:
-                    checkBox8.Text = textCheck;    
+                    checkBox8.Text = input2;
                     break;
                 case 9:
-                    checkBox9.Text = textCheck;
+                    checkBox9.Text = input2;
                     break;
                 case 10:
-                    checkBox10.Text = textCheck;
+                    checkBox10.Text = input2;
                     break;
                 case 11:
-                    checkBox11.Text = textCheck;
+                    checkBox11.Text = input2;
                     break;
                 case 12:
-                    checkBox12.Text = textCheck;
+                    checkBox12.Text = input2;
                     break;
                 default:
+                    MessageBox.Show("Can you please follow the rules", "Yoooo!!!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    dialogBox();
                     break;
             }
+            
+            
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            dialogBox();
+            
+            
         }
     }
 }
