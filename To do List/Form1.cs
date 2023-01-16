@@ -23,6 +23,7 @@ namespace To_do_List
             inputBox.ClientSize = size;
             inputBox.MaximizeBox= false;
             inputBox.MinimizeBox= false;
+            inputBox.StartPosition= FormStartPosition.CenterScreen;
            
             
             //Set the window title using the parameter passed
@@ -82,6 +83,7 @@ namespace To_do_List
             //Show the window dialog box 
             DialogResult result = inputBox.ShowDialog();
             input = textBox.Text;
+            input2= textBox2.Text; 
 
             //After input has been submitted, return the input value
             return result;
@@ -121,7 +123,6 @@ namespace To_do_List
                     checkBox1.Checked = false;
                     MessageBox.Show("Little things gave you away", "Heads up", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-
                     break;
                 case 2:
                     groupBox2.BackColor = Color.Green;
@@ -142,8 +143,7 @@ namespace To_do_List
             }
         }
 
-
-        private void button3_Click(object sender, EventArgs e)
+                private void button3_Click(object sender, EventArgs e)
         {
             groupBox1.BackColor = Color.Transparent;
             groupBox2.BackColor = Color.Transparent;
@@ -157,49 +157,48 @@ namespace To_do_List
             ShowInputDialogBox(ref input, ref input2, "Please enter the checkbox number",
                 "Please write the chore you want to modify", "Qwerty", 300, 200);
             int x = Int32.Parse(input);
+            string textCheck = input2;
             switch (x)
             {
                 case 1:
-                   this.checkBox1.Text = input2;
+                   checkBox1.Text = textCheck;
                     break;
                 case 2:
-                    checkBox2.Text = input2;
+                    checkBox2.Text = textCheck;
                     break;
                 case 3:
-                    checkBox3.Text = input2;
+                    checkBox3.Text = textCheck;
                     break;
                 case 4:
-                    checkBox4.Text = input2;
+                    checkBox4.Text = textCheck;
                     break;
                 case 5:
-                    checkBox5.Text = input2;
+                    checkBox5.Text = textCheck;
                     break;
                 case 6:
-                    checkBox6.Text = input2;
+                    checkBox6.Text = textCheck;
                     break;
                 case 7:
-                    checkBox7.Text = input2;
+                    checkBox7.Text = textCheck;
                     break;
                 case 8:
-                    checkBox8.Text = input2;
+                    checkBox8.Text = textCheck;    
                     break;
                 case 9:
-                    checkBox9.Text = input2;
+                    checkBox9.Text = textCheck;
                     break;
                 case 10:
-                    checkBox10.Text = input2;
+                    checkBox10.Text = textCheck;
                     break;
                 case 11:
-                    checkBox11.Text = input2;
+                    checkBox11.Text = textCheck;
                     break;
                 case 12:
-                    checkBox12.Text = input2;
+                    checkBox12.Text = textCheck;
                     break;
                 default:
                     break;
             }
-
-
         }
     }
 }
