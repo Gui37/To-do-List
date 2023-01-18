@@ -25,7 +25,6 @@ namespace To_do_List
             inputBox.MaximizeBox= false;
             inputBox.MinimizeBox= false;
             inputBox.StartPosition= FormStartPosition.CenterScreen;
-           
             
             //Set the window title using the parameter passed
             inputBox.Text = title;
@@ -67,19 +66,13 @@ namespace To_do_List
             okButton.Location = new Point(size.Width - 80 - 80, size.Height - 30);
             inputBox.Controls.Add(okButton);
 
-            //Create a Cancel Button
-            Button cancelButton = new Button();
-            cancelButton.DialogResult = DialogResult.Cancel;
-            cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(75, 23);
-            cancelButton.Text = "&Cancel";
-            cancelButton.Location = new Point(size.Width - 80, size.Height - 30);
-            inputBox.Controls.Add(cancelButton);
+           
 
-            //Set the input box's buttons to the created OK and Cancel Buttons respectively
+            //Set the input box's buttons to the created OK 
             //so the window appropriately behaves with the button clicks
             inputBox.AcceptButton = okButton;
-            inputBox.CancelButton = cancelButton;
+            
+            
 
             //Show the window dialog box 
             DialogResult result = inputBox.ShowDialog();
@@ -94,51 +87,68 @@ namespace To_do_List
         {
             this.Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private int checkedBoxes()
         {
-            
-            int x=0;
-            
-            if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
+            int x = 0;
+
+           
+             if (checkBox1.Checked && checkBox5.Checked && checkBox9.Checked && checkBox2.Checked && checkBox6.Checked && checkBox10.Checked && checkBox3.Checked && checkBox7.Checked && checkBox11.Checked && checkBox4.Checked && checkBox9.Checked && checkBox9.Checked && checkBox8.Checked && checkBox12.Checked)
             {
-                x = 1;
+                x = 5;
+            }
+            else if (checkBox1.Checked && checkBox5.Checked && checkBox9.Checked)
+            {
+                x = 4;
+            }
+            else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
+            {
+                x = 3;
             }
             else if (checkBox5.Checked && checkBox6.Checked && checkBox7.Checked && checkBox8.Checked)
             {
                 x = 2;
-
             }
             else if (checkBox9.Checked && checkBox10.Checked && checkBox11.Checked && checkBox12.Checked)
             {
-                x = 3;
+                x = 1;
             }
-            else
-            {
-               
-            }
-            
+            return x;
+        }
 
-            switch (x)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (checkedBoxes())
             {
-                case 1:
+                case 3:
                     groupBox1.BackColor = Color.Red;
-                    checkBox1.Checked = false;
                     MessageBox.Show("Little things gave you away", "Heads up", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     break;
                 case 2:
                     groupBox2.BackColor = Color.Green;
-                    checkBox5.Checked = false;
                     MessageBox.Show("If you continue, you will surpass your weakness", "Heads up", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                     break;
-                case 3:
-                    checkBox9.Checked = false;
+                case 1:
                     groupBox3.BackColor = Color.BlueViolet;
                     MessageBox.Show("Keep it up bro", "Heads up", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    break; 
+                    break;  
+                case 4:
+                    groupBox1.BackColor = Color.Red;
+                    groupBox2.BackColor = Color.Green;
+                    groupBox3.BackColor = Color.BlueViolet;
+                    MessageBox.Show("At least you are doing something", "Heads up", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    break;
+                case 5:
+                    groupBox1.BackColor = Color.CadetBlue;
+                    groupBox2.BackColor = Color.DarkCyan;
+                    groupBox3.BackColor = Color.LightSteelBlue;
+                    MessageBox.Show("You are really working", "Heads up", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    break;
                 default:
                     MessageBox.Show("Nigga find something to do bro", "The Fuck?", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
@@ -168,7 +178,7 @@ namespace To_do_List
             catch (System.FormatException)
             {
                 Console.WriteLine("There was a FormatException while using the dialog box");
-                dialogBox();
+                
             }
            
             switch (x)
@@ -212,8 +222,7 @@ namespace To_do_List
                 default:
                     MessageBox.Show("Can you please follow the rules", "Yoooo!!!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    dialogBox();
+                  
                     break;
             }
             
@@ -221,10 +230,21 @@ namespace To_do_List
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            
             dialogBox();
             
-            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (BackColor == Color.DarkSlateGray)
+            {
+                BackColor = System.Drawing.SystemColors.ScrollBar;
+            }
+            else
+            {
+                BackColor = Color.DarkSlateGray;
+            }
+
         }
     }
 }
