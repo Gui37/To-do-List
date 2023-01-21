@@ -187,6 +187,8 @@ namespace To_do_List
             {
                 case 1:
                     checkBox1.Text = input2;
+                    Class1 ada = new Class1();
+                    ada.start();
                     break;
                 case 2:
                     checkBox2.Text = input2;
