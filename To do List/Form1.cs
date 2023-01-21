@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace To_do_List
@@ -159,6 +160,7 @@ namespace To_do_List
                 private void button3_Click(object sender, EventArgs e)
         {
             groupBox1.BackColor = Color.Transparent;
+            
             groupBox2.BackColor = Color.Transparent;
             groupBox3.BackColor = Color.Transparent;
         }
@@ -180,7 +182,7 @@ namespace To_do_List
                 Console.WriteLine("There was a FormatException while using the dialog box");
                 
             }
-           
+        
             switch (x)
             {
                 case 1:
@@ -245,6 +247,46 @@ namespace To_do_List
                 BackColor = Color.DarkSlateGray;
             }
 
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            button1.BackColor = Color.DarkRed;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = System.Drawing.SystemColors.Menu;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+        }
+
+        private void button3_MouseMove(object sender, MouseEventArgs e)
+        {
+            button3.BackColor = Color.DarkSlateGray;
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            button4.BackColor = System.Drawing.SystemColors.HotTrack;
+        }
+
+        private void button4_MouseMove(object sender, MouseEventArgs e)
+        {
+            button4.BackColor = Color.DarkGoldenrod;
+        }
+
+        private void button2_MouseMove(object sender, MouseEventArgs e)
+        {
+            button2.BackColor = Color.LightYellow;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = System.Drawing.SystemColors.ButtonShadow;
         }
     }
 }
