@@ -2,6 +2,7 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+
 namespace To_do_List
 {
     public partial class Form1 : Form
@@ -165,7 +166,7 @@ namespace To_do_List
             groupBox3.BackColor = Color.Transparent;
         }
 
-        private void dialogBox()
+        public void dialogBox()
         {
             string input = "";
             string input2 = "";
@@ -187,8 +188,9 @@ namespace To_do_List
             {
                 case 1:
                     checkBox1.Text = input2;
-                    Class1 ada = new Class1();
-                    ada.start();
+                    DataCheck dataCheck = new DataCheck();
+                    dataCheck.start();
+                    
                     break;
                 case 2:
                     checkBox2.Text = input2;
