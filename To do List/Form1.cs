@@ -7,6 +7,7 @@ namespace To_do_List
 {
     public partial class Form1 : Form
     {
+        private DataCheck dataCheck = new DataCheck();
         public Form1()
         {
             InitializeComponent();
@@ -68,13 +69,9 @@ namespace To_do_List
             okButton.Location = new Point(size.Width - 80 - 80, size.Height - 30);
             inputBox.Controls.Add(okButton);
 
-           
-
             //Set the input box's buttons to the created OK 
             //so the window appropriately behaves with the button clicks
             inputBox.AcceptButton = okButton;
-            
-            
 
             //Show the window dialog box 
             DialogResult result = inputBox.ShowDialog();
@@ -90,84 +87,17 @@ namespace To_do_List
             this.Close();
         }
         
-        private int checkedBoxes()
-        {
-            int x = 0;
-
-           
-             if (checkBox1.Checked && checkBox5.Checked && checkBox9.Checked && checkBox2.Checked && checkBox6.Checked && checkBox10.Checked && checkBox3.Checked && checkBox7.Checked && checkBox11.Checked && checkBox4.Checked && checkBox9.Checked && checkBox9.Checked && checkBox8.Checked && checkBox12.Checked)
-            {
-                x = 5;
-            }
-            else if (checkBox1.Checked && checkBox5.Checked && checkBox9.Checked)
-            {
-                x = 4;
-            }
-            else if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked && checkBox4.Checked)
-            {
-                x = 3;
-            }
-            else if (checkBox5.Checked && checkBox6.Checked && checkBox7.Checked && checkBox8.Checked)
-            {
-                x = 2;
-            }
-            else if (checkBox9.Checked && checkBox10.Checked && checkBox11.Checked && checkBox12.Checked)
-            {
-                x = 1;
-            }
-            return x;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            switch (checkedBoxes())
-            {
-                case 3:
-                    groupBox1.BackColor = Color.Red;
-                    MessageBox.Show("Little things gave you away", "Heads up", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    break;
-                case 2:
-                    groupBox2.BackColor = Color.Green;
-                    MessageBox.Show("If you continue, you will surpass your weakness", "Heads up", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    break;
-                case 1:
-                    groupBox3.BackColor = Color.BlueViolet;
-                    MessageBox.Show("Keep it up bro", "Heads up", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    break;  
-                case 4:
-                    groupBox1.BackColor = Color.Red;
-                    groupBox2.BackColor = Color.Green;
-                    groupBox3.BackColor = Color.BlueViolet;
-                    MessageBox.Show("At least you are doing something", "Heads up", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    break;
-                case 5:
-                    groupBox1.BackColor = Color.CadetBlue;
-                    groupBox2.BackColor = Color.DarkCyan;
-                    groupBox3.BackColor = Color.LightSteelBlue;
-                    MessageBox.Show("You are really working", "Heads up", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    break;
-                default:
-                    MessageBox.Show("Nigga find something to do bro", "The Fuck?", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                    break;
-            }
+            MessageBox.Show("I hope you complete your chores","Keep it Up",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
-                private void button3_Click(object sender, EventArgs e)
-        {
-            groupBox1.BackColor = Color.Transparent;
-            
-            groupBox2.BackColor = Color.Transparent;
-            groupBox3.BackColor = Color.Transparent;
-        }
 
-        public void dialogBox()
+        string? test1, test2 = "";
+
+        private void dialogBox()
         {
+            DataCheck dataCheck = new DataCheck();
             string input = "";
             string input2 = "";
             ShowInputDialogBox(ref input, ref input2, "Please enter the checkbox number between 1-12",
@@ -188,42 +118,75 @@ namespace To_do_List
             {
                 case 1:
                     checkBox1.Text = input2;
-                    DataCheck dataCheck = new DataCheck();
-                    dataCheck.start();
-                    
-                    break;
+                    test1 = input2;
+                    test2 = "1";
+                    dataCheck.addToXml(test2, test1);
+                   break;
                 case 2:
                     checkBox2.Text = input2;
+                    test1 = input2;
+                    test2 = "2";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 3:
                     checkBox3.Text = input2;
+                    test1 = input2;
+                    test2 = "3";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 4:
                     checkBox4.Text = input2;
+                    test1 = input2;
+                    test2 = "4";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 5:
                     checkBox5.Text = input2;
+                    test1 = input2;
+                    test2 = "5";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 6:
                     checkBox6.Text = input2;
+                    test1 = input2;
+                    test2 = "6";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 7:
                     checkBox7.Text = input2;
+                    test1 = input2;
+                    test2 = "7";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 8:
                     checkBox8.Text = input2;
+                    test1 = input2;
+                    test2 = "8";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 9:
                     checkBox9.Text = input2;
+                    test1 = input2;
+                    test2 = "9";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 10:
                     checkBox10.Text = input2;
+                    test1 = input2;
+                    test2 = "10";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 11:
                     checkBox11.Text = input2;
+                    test1 = input2;
+                    test2 = "11";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 case 12:
                     checkBox12.Text = input2;
+                    test1 = input2;
+                    test2 = "12";
+                    dataCheck.addToXml(test2, test1);
                     break;
                 default:
                     MessageBox.Show("Can you please follow the rules", "Yoooo!!!",
@@ -261,16 +224,6 @@ namespace To_do_List
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = System.Drawing.SystemColors.Menu;
-        }
-
-        private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-        }
-
-        private void button3_MouseMove(object sender, MouseEventArgs e)
-        {
-            button3.BackColor = Color.DarkSlateGray;
         }
 
         private void button4_MouseLeave(object sender, EventArgs e)
